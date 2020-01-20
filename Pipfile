@@ -4,14 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+autopep8 = "*"
+flake8 = "*"
 
 [packages]
 requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
-flake8 = "*"
-autopep8 = "*"
 numpy = "*"
+cloudinary = "*"
 
 [requires]
 python_version = "3.7"
