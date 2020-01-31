@@ -29,10 +29,10 @@ with open('urls.txt', mode='w') as f:
 diff = url.get_diff_urls(news_urls, 'urls.txt')
 url.save_urls('urls.txt', news_urls)
 
-# Line Notifyで通知
+# Line Messaging APIで通知
 line_token = os.environ['LINE_TOKEN']
 if diff != []:
     message = '\n'
     for d in diff:
         message += d + '\n\n'
-    line.post_line_notify(line_token, message)
+    line.post_line_message(line_token,message)

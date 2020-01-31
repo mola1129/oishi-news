@@ -1,18 +1,8 @@
-import requests
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
 
 
-# LINE Notify に通知する
-def post_line_notify(token, message):
-    # LINE Notify API URL
-    url = 'https://notify-api.line.me/api/notify'
-
-    # リクエストパラメータ
-    headers = {'Authorization': 'Bearer {0}'.format(token)}
-    payload = {}
-    # メッセージ追加
-    if message:
-        payload["message"] = message
-    try:
-        requests.post(url, headers=headers, params=payload)
-    except Exception as e:
-        raise e
+# Messaging API でブロードキャスト送信する
+def post_line_message(token, message):
+    line_bot_api = LineBotApi(token)
+    res = line_bot_api.broadcast(TextSendMessage(text=message))
