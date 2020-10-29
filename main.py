@@ -28,6 +28,7 @@ old_news = r.json()["news"]
 
 # 記事の差分を抽出
 diff_news = news_api.get_diff(new_news, old_news)
+
 # Line Messaging APIで通知
 line_token = os.environ['LINE_TOKEN']
 if diff_news != []:

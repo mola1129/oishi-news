@@ -18,17 +18,22 @@ def get_oishi():
         title = links[i].get_text()
         url = links[i].get('href')
         news_list.append({
-            title,
-            url,
+            "title": title,
+            "url": url,
         })
     return news_list
 
 
 def get_diff(new_news, old_news):
     diff_news = []
-    for news in new_news:
-        if not (news in old_news):
-            diff_news.append(news)
+    is_included = False
+    for n_news in new_news:
+        for o_news in old_news:
+            if (n_news["url"] == o_news["url"]):
+                is_included = True
+                break
+        if (not is_included):
+            diff_news.append(n_news)
     return diff_news
 
 
