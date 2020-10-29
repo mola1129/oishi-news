@@ -40,7 +40,7 @@ def get_diff(new_news, old_news):
 def upload(filename, news):
     # dictの内容をjsonとしてローカル保存
     with open(filename, 'w') as f:
-        json.dump({news}, f, indent=4)
+        json.dump({"news": news}, f, indent=4)
 
     # 保存ファイルをcloudinaryへアップロード
     cloudinary.uploader.upload(
